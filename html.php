@@ -43,13 +43,12 @@
 <body>
     <div class="container">
         <div id="div_login">
-                <div class="main-title">
-            <form method="post">
+            <div class="main-title">
                 <!-- Title -->
                 <h1 class="box">User Name: </h1>
 
                     <!-- UserName TextBox -->
-                <input type="text" class="txtbox_name box" id="user_name" name="user_name" placeholder="Username"/>
+                    <input type="text" class="txtbox_name box" id="user_name" name="user_name" placeholder="Username"/>
                 </div>
 
                 <!-- Submit Button -->
@@ -59,7 +58,6 @@
 
                 <!-- Message will display after verify-->
                 <div id="message"></div>
-            </form>
         </div>
 
     </div>
