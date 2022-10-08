@@ -1,0 +1,36 @@
+************ Question 2a ************
+
+UPDATE employee_job_table
+SET ej.job_id = 4, ej.effective_date = '2020-01-01'
+FROM employee_job_table ej 
+INNER JOIN employee_profile_table ep USING (employee_id)
+WHERE ep.employee_no = 1002
+
+
+************ Question 2b ************
+
+SELECT ep.employee_name, ep.employee_no, ej.effective_date, jp.job_name
+FROM employee_id ep INNER JOIN employee_job_table ej
+     ON ep.employee_id = ej.employee_id
+INNER JOIN job_profile_table jp
+     ON ej.job_id = jp.job_id
+
+
+************ Question 2c ************
+
+SELECT ep.employee_name, ep.employee_no, jp.job_name
+FROM employee_id ep INNER JOIN
+    ( SELECT employee_id, job_id, MAX(effective_date) AS latest_effective_date
+      FROM employee_job_table
+      GROUP BY employee_id ) ej
+    ON ep.employee_id = ej.employee_id
+INNER JOIN JOIN job_profile_table jp
+     ON ej.job_id = jp.job_id
+
+
+************ Question 2d ************
+
+DELETE * FROM employee_profile_table
+    JOIN employee_job_table USING (employee_id)
+    JOIN job_profile_table (job_id)
+    WHERE effective_date>='2020-01-01'
